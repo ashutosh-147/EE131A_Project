@@ -1,0 +1,7 @@
+1)  b) For this random variable, P(X=k) = (100 nCr k) (0.2)^k (0.8)^(100-k)
+       From this function, we can see that the maximum value occurs at k = 21
+    c) From the simulation, the max value is usually 21, but for some runs
+       it can be 20. This fluctuation is due to the limited number of samples
+       that we are using, but it shows that 10000 does give a fairly good
+       approximation as a large N.
+
