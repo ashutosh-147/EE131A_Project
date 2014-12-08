@@ -5,3 +5,24 @@
        that we are using, but it shows that 10000 does give a fairly good
        approximation as a large N.
 
+2)  Here are some values I got for the mean and variance from one run of
+    my script:
+                Expected    10      10^4    10^7
+    mean        0.0000      0.5615  -0.0102 -4.110e-04
+    variance    1.0000      1.3722  1.0122  0.9999
+
+    Here are the values I got for Q from one run of my script:
+
+            Expected    10      10^4    10^7 Samples
+    Q(1)    0.1587      0.4000  0.1534  0.1586
+    Q(2)    0.0228      0.1000  0.0248  0.0228
+    Q(3)    0.0013      0.0000  0.0022  0.0013
+
+    From the charts above, we can see that as the number of samples increased
+    the values for mean, variance, and Q match the expected values more
+    closely. This trend can also be seen in the figures with expected normal
+    curve super-imposed onto the generated normal pdf. The pdf of 10 samples
+    does not match curve at all, but as the number of samples increases to 10^4,
+    it becomes more acceptable. Then, at 10^7 samples, the pdf almost exacly
+    matches the expected curve.
+    
