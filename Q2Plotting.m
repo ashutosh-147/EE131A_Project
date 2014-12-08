@@ -7,16 +7,25 @@ function [ avg, variance, pg1, pg2, pg3 ] = Q2Plotting( N, N_str, num )
     figure(1 + 3 * num);
     h1 = hist(x,t);
     pmf = h1 / N;
+    
     plot(t,pmf);
     title(strcat('Gaussian pdf - ', N_str, ' samples'));
     ylabel('Pdf values');
     xlabel('Value of Random variable X');
+    
     figure(2 + 3 * num);
     cdf = cumsum(pmf);
+    
     plot(t,cdf);
     title(strcat('Gaussian cdf - ', N_str, ' samples'));
     ylabel('Probablility of X < x');
     xlabel('Value of Random variable X');
+    
+    expected = makedist('Normal');
+
+    figure(3 + 3 * num);
+    plot(t, pmf, t, pdf(expected,t));
+    
     avg = mean(x);
     variance = var(x);
     
