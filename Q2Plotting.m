@@ -4,27 +4,31 @@ function [ avg, variance, pg1, pg2, pg3 ] = Q2Plotting( N, N_str, num )
     
     x = randn(N,1);
     t = min(x):0.1:max(x);
-    figure(1 + 3 * num);
-    h1 = hist(x,t);
-    pmf = h1 / N;
     
-    plot(t,pmf);
+    fig1 = figure(1 + 3 * num);
+    histogram(x, 'Normalization', 'pdf', 'BinWidth', 0.2)
     title(strcat('Gaussian pdf - ', N_str, ' samples'));
     ylabel('Pdf values');
     xlabel('Value of Random variable X');
+    saveas(fig1, strcat('Q2_figures/',N_str,'_fig1'), 'jpeg');
     
-    figure(2 + 3 * num);
-    cdf = cumsum(pmf);
-    
-    plot(t,cdf);
+    fig2 = figure(2 + 3 * num);
+    histogram(x, 'Normalization', 'cdf', 'BinWidth', 0.2)
     title(strcat('Gaussian cdf - ', N_str, ' samples'));
     ylabel('Probablility of X < x');
     xlabel('Value of Random variable X');
-    
-    expected = makedist('Normal');
+    saveas(fig2, strcat('Q2_figures/',N_str,'_fig2'), 'jpeg');
 
-    figure(3 + 3 * num);
-    plot(t, pmf, t, pdf(expected,t));
+    fig3 = figure(3 + 3 * num);
+    histogram(x, 'Normalization', 'pdf', 'BinWidth', 0.2)
+    hold on
+    expected = makedist('Normal');
+    plot(t, pdf(expected,t));
+    title(strcat('Gaussian pdf overlayed with expected results - ', N_str, ' samples'));
+    ylabel('Pdf values');
+    xlabel('Value of Random variable X');
+    hold off
+    saveas(fig3, strcat('Q2_figures/',N_str,'_fig3'), 'jpeg');
     
     avg = mean(x);
     variance = var(x);
