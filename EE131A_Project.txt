@@ -25,4 +25,16 @@
     does not match curve at all, but as the number of samples increases to 10^4,
     it becomes more acceptable. Then, at 10^7 samples, the pdf almost exacly
     matches the expected curve.
-    
+
+
+
+5)  b)  Since X was a uniform RV, it was easy to find the mean and variance:
+        E(x)   = (a + b) / 2 = (1 + 6) / 2 = 3.5
+        Var(x) = (b - a)^2 / 12 = (6 - 1)^2 / 12 = 25/12
+
+        When adding these RV's, we get the following properties:
+        E(S_n) = n * E(x)
+        Var(S_n) = n * Var(x)
+        The following is a chart for the different variances:
+
+        
