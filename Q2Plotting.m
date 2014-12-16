@@ -1,10 +1,12 @@
 function [ avg, variance, pg1, pg2, pg3 ] = Q2Plotting( N, N_str, num )
-%Q2PLOTING Summary of this function goes here
-%   Detailed explanation goes here
+%   Plots the pdf and cdf of a generated Gaussian distribution using 'N'
+%   samples
     
+    %generate the sample distribution
     x = randn(N,1);
     t = min(x):0.1:max(x);
     
+    %plot the pdf of the generated gaussian distribution
     fig1 = figure(1 + 3 * num);
     histogram(x, 'Normalization', 'pdf', 'BinWidth', 0.2)
     title(strcat('Gaussian pdf - ', N_str, ' samples'));
@@ -12,6 +14,7 @@ function [ avg, variance, pg1, pg2, pg3 ] = Q2Plotting( N, N_str, num )
     xlabel('Value of Random variable X');
     saveas(fig1, strcat('Q2_figures/',N_str,'_fig1'), 'jpeg');
     
+    %plot the cdf of the generated gaussian distribution
     fig2 = figure(2 + 3 * num);
     histogram(x, 'Normalization', 'cdf', 'BinWidth', 0.2)
     title(strcat('Gaussian cdf - ', N_str, ' samples'));
@@ -19,6 +22,7 @@ function [ avg, variance, pg1, pg2, pg3 ] = Q2Plotting( N, N_str, num )
     xlabel('Value of Random variable X');
     saveas(fig2, strcat('Q2_figures/',N_str,'_fig2'), 'jpeg');
 
+    %plot the expected gaussian curve over the generated pdf
     fig3 = figure(3 + 3 * num);
     histogram(x, 'Normalization', 'pdf', 'BinWidth', 0.2)
     hold on
@@ -33,8 +37,15 @@ function [ avg, variance, pg1, pg2, pg3 ] = Q2Plotting( N, N_str, num )
     avg = mean(x);
     variance = var(x);
     
+    fprintf('Average of distribution: %f\n', avg);
+    fprintf('Variance of distribution: %f\n', variance);
+    
     pg1 = sum(x > 1) / N;
     pg2 = sum(x > 2) / N;
     pg3 = sum(x > 3) / N;
+    
+    fprintf('Q(1) = %f\n', pg1);
+    fprintf('Q(2) = %f\n', pg2);
+    fprintf('Q(3) = %f\n', pg3);
 end
 
