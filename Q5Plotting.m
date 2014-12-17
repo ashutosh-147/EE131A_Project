@@ -24,7 +24,7 @@ function [  ] = Q5Plotting( n, N, figNum )
     histogram(x, 'Normalization', 'pdf', 'BinWidth', 0.2)
     hold on
     expected = makedist('Normal', 'mu', 3.5*n,'sigma',sqrt(n*25/12));
-    plot(t, pdf(expected,t));
+    plot(t, pdf(expected,t),'r');
     title(strcat('Gaussian pdf overlayed with expected results - n = ', num2str(n)));
     ylabel('Pdf values');
     xlabel('Value of Random variable S_n');
