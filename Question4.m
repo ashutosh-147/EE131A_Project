@@ -8,14 +8,14 @@ figure(1);
 histogram(dist0_5, 'Normalization', 'pdf', 'BinWidth', 0.2)
 title('Laplacian distribution pdf - alpha = 0.5');
 ylabel('f_{X}(x)');
-xlabel('Value of Random variable X');
+xlabel('Value of Random Variable X');
 
 %plot the cdf
 figure(2);
 histogram(dist0_5, 'Normalization', 'cdf', 'BinWidth', 0.2)
 title('Laplacian distribution cdf - alpha = 0.5');
 ylabel('F_{X}(x)');
-xlabel('Value of Random variable X');
+xlabel('Value of Random Variable X');
 
 %generate a Laplacian Distribution with alpha = 2
 dist2 = Q4LapacianDistGen(2, N);
@@ -25,14 +25,14 @@ figure(3);
 histogram(dist2, 'Normalization', 'pdf', 'BinWidth', 0.2)
 title('Laplacian distribution pdf - alpha = 2');
 ylabel('f_{X}(x)');
-xlabel('Value of Random variable X');
+xlabel('Value of Random Variable X');
 
 %plot the cdf
 figure(4);
 histogram(dist2, 'Normalization', 'cdf', 'BinWidth', 0.2)
 title('Laplacian distribution cdf - alpha = 2');
 ylabel('F_{X}(x)');
-xlabel('Value of Random variable X');
+xlabel('Value of Random Variable X');
 
 %snr 0 dB -> sigma = 1 -> alpha = sqrt(2)
 

@@ -6,7 +6,7 @@ x = random(binomialDist, 10000, 1);
 
 %plot values in a histogram
 histogram(x, 'Normalization', 'probability');
-title('binomial RV pmf - N = 100 p = 0.2');
+title('Binomial RV pmf - N = 100 p = 0.2');
 ylabel('probability');
 xlabel('value of k');
 
