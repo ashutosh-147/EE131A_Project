@@ -26,6 +26,22 @@
     it becomes more acceptable. Then, at 10^7 samples, the pdf almost exacly
     matches the expected curve.
 
+3)  a)  To generate the distribution of 2 rolled dice, I simply generated two
+        discrete uniform distributions with values from 1 - 6 and added them
+        together. To find the probability of winning on the first roll, I just
+        added the probablility of rolling a 7 and 11. The probability was
+        around 0.22.
+
+    b)  To calculated the probability of winning given the first roll was a
+        5, I divided the probability of rolling a 5 by the probability of the
+        game ending, which was the sum of the probabilities of rolling a 5
+        and rolling a 7. The probability was around 0.4.
+
+    c)  To calculate the probablility of winning the game, I calculated the
+        probability of winning based off the value of the first roll, then
+        took the sum of those values. The probability calculated was around
+        0.49.
+
 4)  a)  To generate a Laplacian distribution, I first calculated the cdf by
         taking a running integral of the pdf. Then I took the inverse of the
         cdf and plugged in random values generated using a uniform distribution.
