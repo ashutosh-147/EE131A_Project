@@ -26,7 +26,27 @@
     it becomes more acceptable. Then, at 10^7 samples, the pdf almost exacly
     matches the expected curve.
 
+4)  a)  To generate a Laplacian distribution, I first calculated the cdf by
+        taking a running integral of the pdf. Then I took the inverse of the
+        cdf and plugged in random values generated using a uniform distribution.
+        This method was implemented in the Q4LaplacianDistGen.m function.
 
+    b)  To simulate the transmission of 10000 bits, I first created 2 separate
+        distributions, one for transmitting a 1 and one for transmitting a zero.
+        The number of samples in each distribution was determined by a binomial
+        random variable with N = 10000 and p = 0.5, since a 1 and 0 are equiprobable
+        Then, to calculate the probability of having and error, I counted the
+        the number of values above or below 0, and divided by the number of
+        those bits sent. During one run, I got the following values:
+
+            Probability of false zero: 0.029809
+            Probability of false one: 0.028203
+
+    c)  To find the error probability analytically, I integrated the pdf of
+        a LaPlacian distribution with mean 0 and alpha sqrt(2) from 2 to infinity.
+        This gave me an error probability of 0.5*exp(-2 * sqrt(2)), which equals
+        0.0296. The values I get from the simulation (seen above in part b) are
+        very close to this expected value.
 
 5)  b)  Since X was a uniform RV, it was easy to find the mean and variance:
         E(x)   = (a + b) / 2 = (1 + 6) / 2 = 3.5
