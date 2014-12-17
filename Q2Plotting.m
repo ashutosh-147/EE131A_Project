@@ -10,7 +10,7 @@ function [ avg, variance, pg1, pg2, pg3 ] = Q2Plotting( N, N_str, num )
     fig1 = figure(1 + 3 * num);
     histogram(x, 'Normalization', 'pdf', 'BinWidth', 0.2)
     title(strcat('Gaussian pdf - ', N_str, ' samples'));
-    ylabel('Pdf values');
+    ylabel('f_{x}(x)');
     xlabel('Value of Random variable X');
     saveas(fig1, strcat('Q2_figures/',N_str,'_fig1'), 'jpeg');
     
@@ -18,7 +18,7 @@ function [ avg, variance, pg1, pg2, pg3 ] = Q2Plotting( N, N_str, num )
     fig2 = figure(2 + 3 * num);
     histogram(x, 'Normalization', 'cdf', 'BinWidth', 0.2)
     title(strcat('Gaussian cdf - ', N_str, ' samples'));
-    ylabel('Probablility of X < x');
+    ylabel('F_{x}(x)');
     xlabel('Value of Random variable X');
     saveas(fig2, strcat('Q2_figures/',N_str,'_fig2'), 'jpeg');
 
@@ -29,7 +29,7 @@ function [ avg, variance, pg1, pg2, pg3 ] = Q2Plotting( N, N_str, num )
     expected = makedist('Normal');
     plot(t, pdf(expected,t));
     title(strcat('Gaussian pdf overlayed with expected results - ', N_str, ' samples'));
-    ylabel('Pdf values');
+    ylabel('f_{x}(x)');
     xlabel('Value of Random variable X');
     hold off
     saveas(fig3, strcat('Q2_figures/',N_str,'_fig3'), 'jpeg');
