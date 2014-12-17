@@ -10,14 +10,14 @@ function [ avg, variance, pg1, pg2, pg3 ] = Q2Plotting( N, N_str, num )
     figure(1 + 3 * num);
     histogram(x, 'Normalization', 'pdf', 'BinWidth', 0.2)
     title(strcat('Gaussian pdf - ', N_str, ' samples'));
-    ylabel('f_{x}(x)');
+    ylabel('f_{X}(x)');
     xlabel('Value of Random variable X');
     
     %plot the cdf of the generated gaussian distribution
     figure(2 + 3 * num);
     histogram(x, 'Normalization', 'cdf', 'BinWidth', 0.2)
     title(strcat('Gaussian cdf - ', N_str, ' samples'));
-    ylabel('F_{x}(x)');
+    ylabel('F_{X}(x)');
     xlabel('Value of Random variable X');
 
     %plot the expected gaussian curve over the generated pdf
@@ -27,7 +27,7 @@ function [ avg, variance, pg1, pg2, pg3 ] = Q2Plotting( N, N_str, num )
     expected = makedist('Normal');
     plot(t, pdf(expected,t));
     title(strcat('Gaussian pdf overlayed with expected results - ', N_str, ' samples'));
-    ylabel('f_{x}(x)');
+    ylabel('f_{X}(x)');
     xlabel('Value of Random variable X');
     hold off
     
