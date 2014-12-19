@@ -1,7 +1,8 @@
 1)  b) For this random variable, P(X=k) = (100 nCr k) (0.2)^k (0.8)^(100-k)
-       From this function, we can see that the maximum value occurs at k = 20
-    c) From the simulation, the max value is usually 20, but for some runs
-       it can be 19. This fluctuation is due to the limited number of samples
+       By taking the ratio of runs X=k and X=k+1, we can get that the maximum
+       value occurs at k = 20, when the ratio drops below 1.
+    c) From the simulation, the max value is usually 20, but the runs can
+       range from 19-21. This fluctuation is due to the limited number of samples
        that we are using, but it shows that 10000 does give a fairly good
        approximation as a large N.
 
@@ -33,19 +34,36 @@
         around 0.22.
 
     b)  To calculated the probability of winning given the first roll was a
-        5, I divided the probability of rolling a 5 by the probability of the
-        game ending, which was the sum of the probabilities of rolling a 5
-        and rolling a 7. The probability was around 0.4.
+        5 I created a function (Q3SecondRollWinning.m) to simulate the results
+        of games that lasted longer than 1 roll. This function took as parameters
+        the generated dice sum probabilities (from part a) and the value of
+        the first roll. First, I calculate the cdf by taking a cumulative sum
+        of the pdf. Then, I generate a uniform random number and find which
+        roll it cooresponds to. To do this, I find the smallest roll whose
+        cdf value is greater than the generated random value. If the roll results
+        in a 7, it registers as a loss; if it results as the previously rolled
+        value, it registers as a win. Finally, if the roll is something other
+        than those two values, it keeps repeating. When given as input a 5
+        for the sum of the first roll, the simulation shows a probability of
+        about 0.4 over the 10000 runs made.
 
-    c)  To calculate the probablility of winning the game, I calculated the
-        probability of winning based off the value of the first roll, then
-        took the sum of those values. The probability calculated was around
-        0.49.
+    c)  To calculate the probablility of winning the game, I created another
+        funtion (Q3FullGameOfCraps.m) to simulate a complete run of the game.
+        For this, I used the same method as in part b to simulate a roll based
+        on the probabilities generated in part a. Then, I used a switch statement
+        to handle the different cases. If a 7 or 11 was rolled, the game would
+        end with a win. If a 2, 3, or 12 was rolled, the game would end with
+        a loss. Else, I would call the function written in part b to finish
+        off the game. Running this simulation 10000 times, I got the probability
+        of winning a game of craps to be about 0.49.
 
 4)  a)  To generate a Laplacian distribution, I first calculated the cdf by
-        taking a running integral of the pdf. Then I took the inverse of the
-        cdf and plugged in random values generated using a uniform distribution.
-        This method was implemented in the Q4LaplacianDistGen.m function.
+        taking a running integral of the pdf (by hand). Then I took the inverse
+        of the cdf and plugged in random values generated using a uniform distribution.
+        I only generated positive values because the cdf I found was only for
+        the right side of the pdf (due to the absolute value), so I randomly
+        assigned some values to be positive and some to be negative. This
+        method was implemented in the Q4LaplacianDistGen.m function.
 
     b)  To simulate the transmission of 10000 bits, I first created 2 separate
         distributions, one for transmitting a 1 and one for transmitting a zero.
@@ -78,4 +96,3 @@
         5   17.5    125/12
         10  35      125/6
         50  175     625/6
-        
